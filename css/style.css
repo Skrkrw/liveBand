@@ -8,4 +8,9 @@ body{
 
 .container{
     margin: 0 auto;
+    font-size: 2rem;
+}
+
+input[type="text"]{
+    font-size: 1.8rem;
 }

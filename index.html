@@ -8,24 +8,38 @@
     <link rel="stylesheet" href="css/style.css">
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/band_in_townAPI.js"></script>
+
 
     <title>Live Band</title>
 </head>
 <body>
     
-    <div id="bandDiv" class="container">
-        <label for="band">What band are you looking for?</label></br>
-        <input type="text" id="band" name="band"></br>
+    <div id="artistsContainer" class="container">
+        <label for="artists">What band are you looking for?</label></br>
+        <input type="text" id="artists" name="band" oninput="fetchBandInformation()" placeholder="Artists" required></br>
         
-        <label for="location">Location: </label></br>
-        <input type="text" name="location" id="location"></br>
-        
-        <label for="start">Start date:</label></br>
-        <input type="date" id="date" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31"></br>
+        <div class="artistsContent">
+            <img id="artistsAlbum" src="" alt="" width="200px" height="200px"></br>
+            <h2 id="name" class="name"></h2>
+            <label for="location">Location: </label></br>
+
+
+            <input type="text" name="location" id="location"></br>
+            
+            table
+
+
+            <label for="start">Start date:</label></br>
+            <input type="date" id="date" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31"></br>
+        </div>
+
+        <div id="artistsTable">
+            
+        </div>
+
     </div>
     
 
-
+    <script async refer type="text/javascript" src="js/band_in_townAPI.js"></script>
 </body>
 </html>
