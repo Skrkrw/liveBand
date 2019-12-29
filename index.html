@@ -16,27 +16,31 @@
     
     <div id="artistsContainer" class="container">
         <label for="artists">What band are you looking for?</label></br>
-        <input type="text" id="artists" name="band" oninput="fetchBandInformation()" placeholder="Artists" required></br>
+        <input type="text" id="artists" value="" name="band" oninput="fetchBandInformation()" autofocus placeholder="Artists" required></br>
         
         <div class="artistsContent">
             <img id="artistsAlbum" src="" alt="" width="200px" height="200px"></br>
             <h2 id="name" class="name"></h2>
-            <label for="location">Location: </label></br>
-
-
-            <input type="text" name="location" id="location"></br>
-            
-            table
-
-
-            <label for="start">Start date:</label></br>
-            <input type="date" id="date" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31"></br>
+            <p id="lineup"></p>
         </div>
+    </div>
 
-        <div id="artistsTable">
-            
-        </div>
-
+    <div class="container">
+        <table id="artsitsShow" CELLPADDING=6 RULES=GROUPS FRAME=BOX>
+            <thead class="tableH">
+                <tr class="headRow">
+                    <th> # </th>
+                    <th> Venue </th>
+                    <th> City </th>
+                    <th> Country </th>
+                    <th> Time </th>
+                    <th> Tickets </th>
+                </tr>
+            </thead>
+            <tbody id=showList>
+    
+            </tbody>
+        </table>
     </div>
     
 

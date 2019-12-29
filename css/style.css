@@ -5,12 +5,20 @@ body{
     background-color: rgb(87, 165, 179);
 }
 
+a{
+    text-decoration: none;
+}
+
+input[type="text"]{
+    font-size: 1.8rem;
+}
 
 .container{
     margin: 0 auto;
     font-size: 2rem;
 }
 
-input[type="text"]{
-    font-size: 1.8rem;
+
+#artsitsShow{
+    font-size: 1.2rem;
 }
