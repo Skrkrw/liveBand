@@ -14,10 +14,13 @@ input[type="text"]{
 }
 
 .container{
-    margin: 0 auto;
     font-size: 2rem;
+    text-align: center;
 }
 
+table{
+    margin: 0 auto;
+}
 
 #artsitsShow{
     font-size: 1.2rem;
