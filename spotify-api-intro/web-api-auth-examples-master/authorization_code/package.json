@@ -1,0 +1,11 @@
+{
+  "name": "hanagataplus",
+  "version": "1.0.0",
+  "description": "Testing spotify authorization",
+  "main": "app.js",
+  "scripts": {
+    "test": "start"
+  },
+  "author": "spotify/bandInTwon/Jose",
+  "license": "ISC"
+}

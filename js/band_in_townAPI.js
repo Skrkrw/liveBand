@@ -44,10 +44,7 @@ function fetchBandInformation(event){
 
     $.when(
         $.getJSON(`${bitURL}/${artists}?app_id=${bitAPI}`),
-        $.getJSON(`${bitURL}/${artists}/events?app_id=${bitAPI}`),
-        $.getJSON(`https://accounts.spotify.com/authorize?client_id=6a3c296f20584ac6a930f655fd01ce76`),
-        console.log($.getJSON(`${spotifyAPI}/${artists}/${spotifyID}`)),
-        console.log($.getJSON(`https://accounts.spotify.com/authorize?client_id=${sporifyID}&response_type=code&redirect_url`))
+        $.getJSON(`${bitURL}/${artists}/events?app_id=${bitAPI}`)
     ).then(
         function (artResp, eventResp) {
 
