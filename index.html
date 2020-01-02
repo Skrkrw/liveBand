@@ -7,7 +7,9 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+    
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
 
 
     <title>Live Band</title>
@@ -16,7 +18,7 @@
     
     <div id="artistsContainer" class="container">
         <label for="artists">What band are you looking for?</label></br>
-        <input type="text" id="artists" value="" name="band" oninput="fetchBandInformation()" autofocus placeholder="Artists" required></br>
+        <input type="text" id="artists" value="" name="band"  autofocus placeholder="Artists" required></br>
         
         <div class="artistsContent">
             <img id="artistsAlbum" src="" alt="" width="200px" height="200px"></br>
@@ -44,7 +46,8 @@
     </div>
     
 
-    <script async refer type="text/javascript" src="js/band_in_townAPI.js"></script>
+    <script type="text/javascript" src="js/band_in_townAPI.js"></script>
     <script async refer type="text/javascript" src="js/spotifyApp.js"></script>
+
 </body>
 </html>

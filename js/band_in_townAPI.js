@@ -34,10 +34,10 @@ function fetchBandInformation(event){
     const bitAPI = "39605faedc3f5b56c8bd18919d8a9c2a";
 
     //Client Secret: 761153c311694f92aca526a239dfece5;
-    const spotifyAPI = "https://api.spotify.com/v1/";
+    /*const spotifyAPI = "https://api.spotify.com/v1/";
     const spotifyID = "6a3c296f20584ac6a930f655fd01ce76";//"43ZHCT0cAZBISjO8DG9PnE";//0TnOYISbd1XYRBk9myaseg
     const spotifyOAT = "BQDH76hRalNAvKGTbOF_wl4YVR5xmP0xQVomNMmaZgsJiy_LQadVol5Mb4iBwtdRr_KAnJ1SIKwiwFkQ5";
-
+*/
     let artists = $("#artists").val();
 
     $(".headRow").hide();
@@ -74,7 +74,30 @@ function fetchBandInformation(event){
     );
 
 };
+/*
+<script>
+    function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+        txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+  }
+}       
+}
+}*/
+//oninput="fetchBandInformation()"
+//<script async refer type="text/javascript" src="js/spotifyApp.js"></script>
 
-
-
-$(document).ready(fetchBandInformation);
+$(document).ready(function(){
+//    $("#artists").on("input", _.debounce(fetchArtistsName, 150));
+    $("#artists").keyup(_.debounce(fetchBandInformation, 150) );
+});
