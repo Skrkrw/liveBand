@@ -1,3 +1,9 @@
+ //Client Secret: 761153c311694f92aca526a239dfece5;
+/*const spotifyAPI = "https://api.spotify.com/v1/";
+const spotifyID = "6a3c296f20584ac6a930f655fd01ce76";//"43ZHCT0cAZBISjO8DG9PnE";//0TnOYISbd1XYRBk9myaseg
+const spotifyOAT = "BQDH76hRalNAvKGTbOF_wl4YVR5xmP0xQVomNMmaZgsJiy_LQadVol5Mb4iBwtdRr_KAnJ1SIKwiwFkQ5";
+*/
+
 /*
 <script src="https://sdk.scdn.co/spotify-player.js"></script>
 <script>
