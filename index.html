@@ -21,14 +21,20 @@
 <body>
     
     <div id="artistsContainer" class="container">
-        <label for="artists">What band are you looking for?</label></br>
-        <input type="text" id="artists" value="" name="band" class="ui-autocomplete-input" oninput="fetchBandInformation()" autofocus placeholder="Artists" required></br>
-        
+        <div id="adrtisBrowser">
+            <label id="artistLabel" for="artists">What band are you looking for?</label></br>
+            <input type="text" id="artists" value="" name="band" class="" oninput="fetchBandInformation()" autofocus
+                placeholder="Artists" required></br>
+        </div>
         <div class="artistsContent">
             <img id="artistsAlbum" src="" alt="" width="200px" height="200px"></br>
             <h2 id="name" class="name"></h2>
             <p id="lineup"></p>
         </div>
+
+        <div id="artists2">
+
+        </div></br>
     </div>
 
     <div class="container">
@@ -39,6 +45,7 @@
                     <th> Venue </th>
                     <th> City </th>
                     <th> Country </th>
+                    <th> Location </th>
                     <th> Time </th>
                     <th> Tickets </th>
                 </tr>
@@ -47,11 +54,60 @@
                 
             </tbody>
         </table>
+
+        <div id="map"></div>
     </div>
     
-
+<footer>    
+    <p>Porject with no profict but educational.</p>
+    <p>BandInTown is the main API being use in this application as part of the second mileston project.</p>
+    <p>Second API is Spotify but still learning about how to implement the OAuthorization and tokens.</p>
+</footer>
     <script type="text/javascript" src="js/band_in_townAPI.js"></script>
     
 
+    <!--script>
+        var APIKey = "AIzaSyD50Cf8z1w1f_pxvRR1vr-_EPc3yP0Qpnc";
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 3,
+                center: {
+                    lat: 46.619261,
+                    lng: -33 - 134766
+                }
+            });
+
+            var labels = "ABCDEFGHIJKLMNÑOPQRSTUVXYZ";
+
+            var locations = [
+                { lat: 40.785091, lng: -73.968285 },
+                { lat: 41.084045, lng: -73.874245 },
+                { lat: 40.754932, lng: -73.984016 }
+            ];
+
+            /*map its a JS method and can take up to three arguments and work similar to a for each( ) function*/
+            /*arguments = location is the current value where we are in the array and the "i" is the index number*/
+            var markers = locations.map(function (location, i) {
+                return new google.maps.Marker({/*Get one of the strings out of the labels we created*/
+                    position: location,
+                    label: labels[i % labels.length]
+                    /*The reason for using the %operator is so that if we have more than 26 locations, then it will loop around to the start of our string again and go from Z back to A, instead of throwing an error.*/
+                });
+            });
+
+            // Add a marker clusterer to manage the markers.
+            var markerCluster = new MarkerClusterer(map, markers,
+                { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+
+        }    
+    </!--script>
+    
+    <script
+        src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script-->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js&callback=renderMap?key=AIzaSyD50Cf8z1w1f_pxvRR1vr-_EPc3yP0Qpnc"></script>
+
+    <script src="https://www.jacklmoore.com/colorbox/jquery.colorbox.js"></script>
 </body>
 </html>
