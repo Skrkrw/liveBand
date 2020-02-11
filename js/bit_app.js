@@ -98,13 +98,13 @@ function renderBandEvents(bandEvents) {
     tableHead = `
         <thead id="tableHeader"" class="tableHeader" textCenter">
             <tr>
-                <th class="tableHeader">#</th>
-                <th class="tableHeader">Venue</th>
-                <th class="tableHeader">City</th>
-                <th class="tableHeader">Country</th>
-                <th class="tableHeader">Location</th>
-                <th class="tableHeader">Date & Time</th>
-                <th class="tableHeader">Tickets</th>
+                <th class="tableHeaders">#</th>
+                <th class="tableHeaders">Venue</th>
+                <th class="tableHeaders">City</th>
+                <th class="tableHeaders">Country</th>
+                <th class="tableHeaders">Location</th>
+                <th class="tableHeaders">Date & Time</th>
+                <th class="tableHeaders">Tickets</th>
             </tr>        
         </thead>
         `;
