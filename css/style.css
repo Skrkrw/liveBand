@@ -1,19 +1,26 @@
+
 body{
     margin: 0;
     padding: 0;
+    
+    background: rgb(36,241,246);
+    background: linear-gradient(65deg, rgba(36,241,246,1) 50%, 
+                                        rgba(29,253,145,1) 47%,
+                                         rgba(69,252,161,1) 80%);
 
-    background-color: rgb(87, 165, 179);
+    color: black;
+    font-weight: 500;
 }
+/*
+*{
+    background-color: rgb(87, 165, 179);
+}/*/
 
 a{
     text-decoration: none;
 }
 
-input[type="text"]{
-    font-size: 1.8rem;
-}
-
-.container{
+.divContainer{
     font-size: 2rem;
     text-align: center;
 }
@@ -26,11 +33,46 @@ table{
     font-size: 1.2rem;
 }
 
-#artistsContent,
+/*#artistsContent,
 #artistsAlbum{
     margin-top: 1rem;
+}*/
+
+.card{
+    margin: 2rem auto;
+}
+
+.card h2{
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 0;
 }
 
 #adrtisBrowser{
     margin-top: 2.5rem;
 }
+
+input[type="text"]{
+    color: black; 
+    background-color: transparent;
+    text-align: center;
+    border-bottom: solid 5px tomato !important;
+    font-size: 24px !important;
+}
+/*
+input::placeholder{
+    color: black;
+    
+}*/
+
+#artistLabel{
+    font-size: 1.5rem;
+    color: black;
+    text-align: center ;
+}
+
+.textCenter{
+    text-align: center;
+}
+
+@media
