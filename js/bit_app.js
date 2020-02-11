@@ -96,15 +96,15 @@ function init() {
  */
 function renderBandEvents(bandEvents) {
     tableHead = `
-        <thead id="tableHeader" class="tableHeader textCenter">
+        <thead id="tableHeader"" class="tableHeader" textCenter">
             <tr>
-                <th class="textCenter"><h4>#</h4></th>
-                <th class="textCenter"><h4>Venue</h4></th>
-                <th class="textCenter"><h4>City</h4></th>
-                <th class="textCenter"><h4>Country</h4></th>
-                <th class="textCenter"><h4>Location</h4></th>
-                <th class="textCenter"><h4>Time</h4></th>
-                <th class="textCenter"><h4>Tickets</h4></th>
+                <th class="tableHeader">#</th>
+                <th class="tableHeader">Venue</th>
+                <th class="tableHeader">City</th>
+                <th class="tableHeader">Country</th>
+                <th class="tableHeader">Location</th>
+                <th class="tableHeader">Date & Time</th>
+                <th class="tableHeader">Tickets</th>
             </tr>        
         </thead>
         `;
@@ -115,16 +115,18 @@ function renderBandEvents(bandEvents) {
         const eventDate = bandEvent.datetime;
         const eventUrl = bandEvent.url;
         rows += `
-            <tr id="bandInfoRow" class="textCenter">
-                <td class="textCenter">${index + 1}</td>
-                <td class="textCenter">${venue.name}</td>
-                <td class="textCenter" class="textCenter">${venue.city}</td>
-                <td class="textCenter">${venue.country}</td>
-                <td class="textCenter">${renderGoogleMapLink(venue)}</td>
-                <td class="textCenter">${eventDate}</td>
-                <td class="textCenter"><a href="${eventUrl}">
-                        <img src="https://img.icons8.com/wired/64/000000/starred-ticket.png">
-                    </a></td>
+            <tr id="bandInfoRow">
+                <td>${index + 1}</td>
+                <td>${venue.name}</td>
+                <td>${venue.city}</td>
+                <td>${venue.country}</td>
+                <td>${renderGoogleMapLink(venue)}</td>
+                <td>${eventDate}</td>
+                <td class="contentimg">
+                    <a href="${eventUrl}">
+                        <img src="https://img.icons8.com/wired/64/000000/starred-ticket.png" width="32px">
+                    </a>
+                </td>
             </tr>
         `;
     });
@@ -151,7 +153,7 @@ function showMapPopUp(element) {
         html: `
       <iframe width="600" height="550" frameborder="0" style="border:0"
         src="https://www.google.com/maps/embed/v1/place?key=${GMP_API_KEY}&q=${thisPopup.data('venueLatitude')},${thisPopup.data('venueLongitude')}&zoom=12"
-        allowfullscreen>
+          allowfullscreen>
       </iframe>`
     });
 
@@ -165,7 +167,9 @@ function showMapPopUp(element) {
  * @param {Object} venue 
  */
 function renderGoogleMapLink(venue) {
-    return `<a onclick="showMapPopUp(this)" data-venue-latitude="${venue.latitude}" data-venue-longitude="${venue.longitude}" class="googleMapPopUp" rel="nofollow" href="#"><img src="https://img.icons8.com/wired/64/000000/worldwide-location.png"></a>`;
+    return `<a onclick="showMapPopUp(this)" data-venue-latitude="${venue.latitude}" data-venue-longitude="${venue.longitude}" class="googleMapPopUp" rel="nofollow" href="#">
+                <img src="https://img.icons8.com/wired/64/000000/worldwide-location.png" width="32px">
+            </a>`;
 }
 
 function renderError(message) {

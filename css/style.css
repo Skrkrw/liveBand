@@ -71,8 +71,13 @@ input::placeholder{
     text-align: center ;
 }
 
-.textCenter{
+tr > td,
+tr > th{
     text-align: center;
 }
 
-@media
+td > img{
+    width: 32px;
+}
+
+//@media
