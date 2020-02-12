@@ -59,6 +59,10 @@ input[type="text"]{
     border-bottom: solid 5px tomato !important;
     font-size: 24px !important;
 }
+
+#contentTable{
+    overflow-x:auto;
+}
 /*
 input::placeholder{
     color: black;
@@ -98,7 +102,7 @@ td > img{
 @media (min-width: 1200px) { ... }
 ******************************/
 
-@media screen (max-width: 350px){
+@media (max-width: 350px){
     .tableHeaders{
         font-size: 12px;
     }
