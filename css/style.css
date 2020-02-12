@@ -104,8 +104,9 @@ td > img{
 ******************************/
 
 @media (max-width: 450px){
-    .tableHeaders{
-        font-size: 10px;
+    .tableHeaders,
+    tr > td{
+        font-size: 12px;
     }
 
     tr > td{
