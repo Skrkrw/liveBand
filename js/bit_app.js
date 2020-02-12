@@ -98,13 +98,13 @@ function renderBandEvents(bandEvents) {
     tableHead = `
         <thead id="tableHeader"" class="tableHeader" textCenter">
             <tr>
-                <th class="tableHeaders">#</th>
-                <th class="tableHeaders">Venue</th>
-                <th class="tableHeaders">City</th>
-                <th class="tableHeaders">Country</th>
-                <th class="tableHeaders">Location</th>
-                <th class="tableHeaders">Date & Time</th>
-                <th class="tableHeaders">Tickets</th>
+                <th class="tableHeaders tNumber">#</th>
+                <th class="tableHeaders tVenue">Venue</th>
+                <th class="tableHeaders tCity">City</th>
+                <th class="tableHeaders tCountry">Country</th>
+                <th class="tableHeaders tLocation">Location</th>
+                <th class="tableHeaders tDateTime">Date & Time</th>
+                <th class="tableHeaders tTicket">Tickets</th>
             </tr>        
         </thead>
         `;
@@ -116,13 +116,13 @@ function renderBandEvents(bandEvents) {
         const eventUrl = bandEvent.url;
         rows += `
             <tr id="bandInfoRow">
-                <td>${index + 1}</td>
-                <td>${venue.name}</td>
-                <td>${venue.city}</td>
-                <td>${venue.country}</td>
-                <td>${renderGoogleMapLink(venue)}</td>
-                <td>${eventDate}</td>
-                <td class="contentimg">
+                <td class="tNumber">${index + 1}</td>
+                <td class="tVenue">${venue.name}</td>
+                <td class="tCity">${venue.city}</td>
+                <td class="tCountry">${venue.country}</td>
+                <td class="tLocation">${renderGoogleMapLink(venue)}</td>
+                <td class="tDateTime">${eventDate}</td>
+                <td class="contentimg tTicket">
                     <a href="${eventUrl}">
                         <img src="https://img.icons8.com/wired/64/000000/starred-ticket.png" width="32px">
                     </a>
