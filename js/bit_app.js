@@ -6,7 +6,7 @@ let tableHead;
 const API_ENDPOINT = 'https://rest.bandsintown.com/artists';
 const API_KEY = '39605faedc3f5b56c8bd18919d8a9c2a';
 // Creates your own Google Maps Plataform API Key and replace this one.
-const GMP_API_KEY = 'AIzaSyCfrIjyShF1dUndMhpQu8_cFGyPUolIL5I';
+const GMP_API_KEY = 'AIzaSyD50Cf8z1w1f_pxvRR1vr-_EPc3yP0Qpnc';
 
 const artistInfoTpl = Handlebars.compile(
     `
