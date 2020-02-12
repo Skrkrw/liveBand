@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Source+Code+Pro&display=swap');
+/***************
+    font-family: 'Pacifico', cursive;
+    font-family: 'Source Code Pro', monospace;
+**************/
+.pacifico{
+    font-family: 'Pacifico', cursive;
+}
+
+.source{
+    font-family: 'Source Code Pro', monospace;
+}
+
 
 body{
     margin: 0;
@@ -55,20 +68,26 @@ table{
 input[type="text"]{
     color: black; 
     background-color: transparent;
-    text-align: center;
+    /*text-align: center;*/
     border-bottom: solid 5px tomato !important;
     font-size: 24px !important;
+
+    caret-color: red;
+    caret-color: #ff0000;
+    caret-color: rgb(255, 0, 0);
+    caret-color: hsl(0, 97%, 50%);
 }
 
 /*#contentTable{
     /*overflow-x:auto;
 }*/
 
-/*
+
 input::placeholder{
     color: black;
+    font-weight: 500;
     
-}*/
+}
 
 #artistLabel{
     font-size: 1.5rem;
@@ -104,7 +123,9 @@ td > img{
 ******************************/
 
 @media (max-width: 450px){
-    .tableHeaders,
+    .tableHeaders{
+        font-size: 16px;
+    }
     tr > td{
         font-size: 12px;
     }
@@ -118,6 +139,19 @@ td > img{
     .tDateTime{
         display: none;
     }
+
+    .liveBandIcon{
+        width: 45px;
+    }
+
+    input[type="text"]{
+    font-size: 18px !important;
+    }
+
+    h1{
+        font-size: 45px;
+    }
+
 }
 
 /**

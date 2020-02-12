@@ -96,8 +96,8 @@ function init() {
  */
 function renderBandEvents(bandEvents) {
     tableHead = `
-        <thead id="tableHeader"" class="tableHeader" textCenter">
-            <tr>
+        <thead id="tableHeader"" class="tableHeader" textCenter ">
+            <tr class="pacifico">
                 <th class="tableHeaders tNumber">#</th>
                 <th class="tableHeaders tVenue">Venue</th>
                 <th class="tableHeaders tCity">City</th>
@@ -115,7 +115,7 @@ function renderBandEvents(bandEvents) {
         const eventDate = bandEvent.datetime;
         const eventUrl = bandEvent.url;
         rows += `
-            <tr id="bandInfoRow">
+            <tr id="bandInfoRow" class="source">
                 <td class="tNumber">${index + 1}</td>
                 <td class="tVenue">${venue.name}</td>
                 <td class="tCity">${venue.city}</td>
