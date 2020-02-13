@@ -76,6 +76,7 @@ input[type="text"]{
     caret-color: #ff0000;
     caret-color: rgb(255, 0, 0);
     caret-color: hsl(0, 97%, 50%);
+    caret-color: 3px;
 }
 
 /*#contentTable{
@@ -84,7 +85,7 @@ input[type="text"]{
 
 
 input::placeholder{
-    color: black;
+    color: darkgray;
     font-weight: 500;
     
 }
