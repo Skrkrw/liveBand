@@ -188,7 +188,8 @@ td > img{
     }
 
     #contentTable,
-    .table{
+    .table,
+    .container{
         margin: 0;
         width: 100vw;
     }
