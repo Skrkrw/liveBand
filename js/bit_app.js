@@ -3,6 +3,8 @@ let errorMessageContainer;
 let bandVenueListContainer;
 let artistsContent;
 let tableHead;
+let selectedOption;
+
 const API_ENDPOINT = 'https://rest.bandsintown.com/artists';
 const API_KEY = '39605faedc3f5b56c8bd18919d8a9c2a';
 // Creates your own Google Maps Plataform API Key and replace this one.
@@ -11,9 +13,9 @@ const GMP_API_KEY = 'AIzaSyD50Cf8z1w1f_pxvRR1vr-_EPc3yP0Qpnc';
 const artistInfoTpl = Handlebars.compile(
     `
     <div class="card" style="width: 250px;">
-        <img id="artistsAlbum" class="card-img-top" src="{{artist.thumb_url}}" alt="" width="250px">
+        <img id="artistsAlbum" class="card-img-top" src="{{artistsInfo.thumb_url}}" alt="" width="250px">
         <div class="card-body">
-            <h2 id="name" class="name">{{artist.name}}</h2>
+            <h2 id="name" class="name">{{artistsInfo.name}}</h2>
         </div>
     </div>
     `);
@@ -36,10 +38,14 @@ function fetchBandInformation(event) {
     // case the input element.
     let artists = event.target.value;
 
+    selectedOption = $("#filterBand").val();
+    console.log(selectedOption);
+    
     $.when(
-        // $.getJSON(`${bitURL}/${artists}?app_id=${bitAPI}`),
-        $.getJSON(`${API_ENDPOINT}/${artists}/events?app_id=${API_KEY}&date=all`)
-    ).then((/*artResp,*/ eventsResponse) => {
+        $.getJSON(`${API_ENDPOINT}/${artists}?app_id=${API_KEY}`),
+        $.getJSON(`${API_ENDPOINT}/${artists}/events?app_id=${API_KEY}&date=${selectedOption}`)
+    ).then((artistsResponse, eventsResponse) => {
+        console.log(artistsResponse);
         console.log(eventsResponse);
 
         if (!eventsResponse.length) {
@@ -50,32 +56,27 @@ function fetchBandInformation(event) {
         }
 
         // Retrieve the artist value from the first item in the list of venues
-        var artists = eventsResponse[0].artist;
-        //tableHead.show();
+        var artistsInfo = artistsResponse[0];
+        var artistsEvents = eventsResponse[0];
+
         bandVenueListContainer.show();
-        artistsContent.innerHTML = renderArtistInfo(artists);
-        bandVenueList.innerHTML = renderBandEvents(eventsResponse);
+        artistsContent.innerHTML = renderArtistInfo(artistsInfo);
+//        bandVenueList.innerHTML = renderBandEvents(eventsResponse);
+        bandVenueList.innerHTML = renderBandEvents(artistsEvents);
     },
         (errorResponse) => {
             bandVenueListContainer.hide();
-            if (errorResponse.status === 404) {
-                //document.getElementById(bandVenueList).style.display = 'none';
-                //tableHeader.innerHtml();
-                //bandInfoRow.innerHTML();
-                //  bandVenueList.innerHTML();
-                
+            if (errorResponse.status === 404) {                
                 errorMessageContainer.innerHTML = renderError('No artist found with that name');
-                
+                $("#errorMsg").show();
             } else if (errorResponse.status === 403) {
                 errorMessageContainer.innerHTML = renderError('No authentication has been provided by the application');
+                $("#errorMsg").show();
             } else {
                 errorMessageContainer.innerHTML = renderError(errorResponse.responseJSON.message);
+                $("#errorMsg").show();
             }
-            /*$(artistsContent).hide();
-            $("#tableHeader").hide();
-            $("#bandInfoRow").hide();
-            /*/
-            $("#errorMsg").show();
+            
         });
 };
 
@@ -93,6 +94,8 @@ function init() {
 
     errorMessageContainer = document.getElementById('errorMsg');
     bandVenueListContainer = $('#bandVenueListContainer');
+
+    
 
     // Add an event to the input#artists in order to handle entered values in the
     // input element. The handler uses a debounce funcition with a delay of 150ms
@@ -123,7 +126,6 @@ function renderBandEvents(bandEvents) {
         `;
 
     let rows = '';
-
     //console.log(bandEvents);
 
     bandEvents.forEach((bandEvent, index) => {
@@ -148,18 +150,27 @@ function renderBandEvents(bandEvents) {
         `;
 
     });
-
+/*
+    $("#errorMsg").hide();
+    //$("#tableHeader").show();
+    //$("#bandInfoRow").hide();
+    $("#bandVenueList").show();
+*/
     return tableHead + rows;
-    
 }
 
 /**
  * Renders the artist information.
  * @param {Object} artist 
  */
-function renderArtistInfo(artist) {
-    return artistInfoTpl({artist});
+function renderArtistInfo(artistsInfo) {
+    return artistInfoTpl({artistsInfo});
 }
+
+/*
+function getFilterOption(){
+
+}*/
 
 /**
  * Handler used on the onclick event for A element used in the location of the
@@ -200,5 +211,5 @@ function renderError(message) {
 $(document).ready(init, function(){
     
     $('select').formSelect();
-    $('select').show();
+    //$('select').show();
 });

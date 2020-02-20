@@ -32,19 +32,20 @@
                 <img src="https://img.icons8.com/wired/50/000000/search.png">
                 <input type="text" id="artists" class="source col s10" value="" name="band" placeholder="Search" autofocus>
             </div>
-            <div class="col s12 offset-s1">
+            <div class="filterDiv col s12 offset-s1">
                 <select name="filterBand" id="filterBand" class=" ">
                     <option value="all">All</option>
-                    <option value="upcoming">Upcoming</option>
+                    <option value="upcoming" selected>Upcoming</option>
                     <option value="past">Previous</option>
                 </select>
-            </div>
+            </div>    
         </div>
-        
 
-        <div class="row justify-content-center align-items-center">
-            <div id="artistsContent"class="justify-content-center align-items-center"></div>
-            <div id="errorMsg" class="error-msg" hidden></div>
+        <div class="row">
+           <div class="col">
+                <div id="artistsContent" class="justify-content-center align-items-center"></div>
+                <div id="errorMsg" class="error-msg" hidden></div>
+           </div>
         </div>
 
         <div id="contentTable" class="row">
