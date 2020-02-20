@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,47 +14,57 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <title>Live Band</title>
 </head>
+
 <body>
     <div class="container">
         <div id="artistsContainer" class="divContainer row">
-            <div id="artistsBrowser" class="col s12 l6 offset-l3 xl6 offset-xl3">
+            <div id="artistsBrowser" class="col s12 l6 offset-l3 xl8 offset-xl2 ">
                 <h1 class="pacifico">
                     <img class="liveBandIcon" src="https://img.icons8.com/wired/64/000000/rock-music.png">
                     Live Band!
                 </h1>
-                
-                <div class="col s12 xl10 offset-xl1">
-                    <!--label-- id="artistLabel" for="artists">What band are you looking for?<--abel-->
-                    <img src="https://img.icons8.com/wired/50/000000/search.png"/>
-                    <input type="text" id="artists" class="source col s10" value="" name="band" placeholder="What band are you looking for?" autofocus>
-                </div>                
             </div>
         </div>
 
-        <div class="row justify-content-center align-items-center">
-            <div id="artistsContent"></div>
-            <div id="errorMsg" class="error-msg" hidden></div>
+        <div class="row">
+            <div class="searchBar col s12 xl10 offset-xl1">
+                <!--label-- id="artistLabel" for="artists">What band are you looking for?<--abel-->
+                <img src="https://img.icons8.com/wired/50/000000/search.png">
+                <input type="text" id="artists" class="source col s10" value="" name="band" placeholder="Search" autofocus>
+            </div>
+            <div class="col s12">
+                <select name="filterBand" id="filterBand" class=" ">
+                    <option value="all">All</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="past">Previous</option>
+                </select>
+            </div>
         </div>
         
+
+        <div class="row justify-content-center align-items-center">
+            <div id="artistsContent"class="justify-content-center align-items-center"></div>
+            <div id="errorMsg" class="error-msg" hidden></div>
+        </div>
+
         <div id="contentTable" class="row">
-            <table class="table col-10 offset-1">
+            <table class="table col">
                 <!--thead-- id="tableHeader" class="tCenter"></!--thead-->
                 <tbody id="bandVenueList"></tbody>
             </table>
         </div>
     </div>
-    
+
     <footer>
 
     </footer>
-    
-    <script src="https://code.jquery.com/jquery-3.4.1.js" 
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
 
@@ -61,6 +72,7 @@
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
     <script type="text/javascript" src="js/bit_app.js"></script>
-    
+
 </body>
+
 </html>

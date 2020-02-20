@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico|Source+Code+Pro&display=swap');
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
 /***************
     font-family: 'Pacifico', cursive;
     font-family: 'Source Code Pro', monospace;
@@ -19,7 +22,7 @@ body{
     background: rgb(36,241,246);
     background: linear-gradient(65deg, rgba(36,241,246,1) 50%, 
                                         rgba(29,253,145,1) 47%,
-                                         rgba(69,252,161,1) 80%);
+                                          rgba(69,252,161,1) 80%);
 
     color: black;
     font-weight: 500;
@@ -33,9 +36,13 @@ a{
     text-decoration: none;
 }
 
-.divContainer{
-    font-size: 2rem;
+h1{
+    font-size: 4rem;
     text-align: center;
+}
+
+.liveBandIcon{
+    margin-bottom: 15px;
 }
 
 table{
@@ -44,6 +51,12 @@ table{
 
 #artsitsShow{
     font-size: 1.2rem;
+}
+
+div > select{
+    display: block;
+    position: absolute;
+    width: 150px;
 }
 
 /*#artistsContent,
@@ -69,24 +82,25 @@ input[type="text"]{
     color: black; 
     background-color: transparent;
     /*text-align: center;*/
-    border-bottom: solid 5px tomato !important;
+    border:0px !important;
     font-size: 24px !important;
-
-    caret-color: red;
-    caret-color: #ff0000;
-    caret-color: rgb(255, 0, 0);
-    caret-color: hsl(0, 97%, 50%);
-    caret-color: 3px;
+    outline: none;
+   
 }
 
+.container > .searchBar{
+    border: 25% solid black;
+}
 /*#contentTable{
     /*overflow-x:auto;
 }*/
 
 
 input::placeholder{
-    color: darkgray;
-    font-weight: 500;
+    color: black;
+    font-weight: 700;
+    padding-left: 20px;
+    height: 3rem !important;
     
 }
 
@@ -127,14 +141,7 @@ td > img{
     .tableHeaders{
         font-size: 16px;
     }
-    tr > td{
-        font-size: 12px;
-    }
 
-    tr > td{
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
 
     .tCity,
     .tDateTime{
@@ -149,9 +156,45 @@ td > img{
     font-size: 18px !important;
     }
 
+
     h1{
         font-size: 45px;
     }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px){
+
+    /*div > .liveBandIcon{
+        width: 35px !important;
+        margin-top: 10px;
+    }*/
+
+        tr > td{
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    tr > th{
+        padding: 4px;
+    }
+
+    #filterBand{
+        width: 80vw;
+    }
+
+    .searchBar > img{
+        width: 35px;
+    }
+
+    #contentTable,
+    .table{
+        margin: 0;
+        width: 100vw;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
 
 }
 

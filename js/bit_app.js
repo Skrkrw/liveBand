@@ -20,14 +20,14 @@ const artistInfoTpl = Handlebars.compile(
 
 /*** @param {DOM} event ***/
 function fetchBandInformation(event) {
-    console.log(event);
+    //console.log(event);
     // Reset errors or info messages
     errorMessageContainer.innerHTML = '';
 
     // Check if the event is null or if the target value is empty
     if (!event || event.target.value === '') {
         artistsContent.innerHTML = '';
-        tableHead.hide()
+        /*$(tableHead).hide();*/
         bandVenueListContainer.hide();
         return;
     }
@@ -38,14 +38,14 @@ function fetchBandInformation(event) {
 
     $.when(
         // $.getJSON(`${bitURL}/${artists}?app_id=${bitAPI}`),
-        $.getJSON(`${API_ENDPOINT}/${artists}/events?app_id=${API_KEY}`)
+        $.getJSON(`${API_ENDPOINT}/${artists}/events?app_id=${API_KEY}&date=all`)
     ).then((/*artResp,*/ eventsResponse) => {
         console.log(eventsResponse);
 
         if (!eventsResponse.length) {
-            artistsContent.innerHTML = '';
+            /*artistsContent.innerHTML = '';*/
             bandVenueListContainer.hide();
-            errorMessageContainer.innerHTML = renderError('No artist found with that name');
+            errorMessageContainer.innerHTML = renderError('Theres no upcomming shows');
             return;
         }
 
@@ -59,13 +59,23 @@ function fetchBandInformation(event) {
         (errorResponse) => {
             bandVenueListContainer.hide();
             if (errorResponse.status === 404) {
-                //tableHead.hide();
+                //document.getElementById(bandVenueList).style.display = 'none';
+                //tableHeader.innerHtml();
+                //bandInfoRow.innerHTML();
+                //  bandVenueList.innerHTML();
+                
                 errorMessageContainer.innerHTML = renderError('No artist found with that name');
+                
             } else if (errorResponse.status === 403) {
                 errorMessageContainer.innerHTML = renderError('No authentication has been provided by the application');
             } else {
                 errorMessageContainer.innerHTML = renderError(errorResponse.responseJSON.message);
             }
+            /*$(artistsContent).hide();
+            $("#tableHeader").hide();
+            $("#bandInfoRow").hide();
+            /*/
+            $("#errorMsg").show();
         });
 };
 
@@ -78,6 +88,8 @@ function init() {
     // rendering process within the fetchBandInformation function.
     bandVenueList = document.getElementById('bandVenueList');
     artistsContent = document.getElementById('artistsContent');
+
+    dateEvent = document.getElementById('dateEvent');
 
     errorMessageContainer = document.getElementById('errorMsg');
     bandVenueListContainer = $('#bandVenueListContainer');
@@ -95,8 +107,9 @@ function init() {
  * @param {Array} bandEvents 
  */
 function renderBandEvents(bandEvents) {
+    
     tableHead = `
-        <thead id="tableHeader"" class="tableHeader" textCenter ">
+        <thead id="tableHeader" class="tableHeader" textCenter ">
             <tr class="pacifico">
                 <th class="tableHeaders tNumber">#</th>
                 <th class="tableHeaders tVenue">Venue</th>
@@ -110,12 +123,16 @@ function renderBandEvents(bandEvents) {
         `;
 
     let rows = '';
+
+    //console.log(bandEvents);
+
     bandEvents.forEach((bandEvent, index) => {
         const venue = bandEvent.venue;
         const eventDate = bandEvent.datetime;
         const eventUrl = bandEvent.url;
+
         rows += `
-            <tr id="bandInfoRow" class="source">
+            <tr id="bandInfoRow" class="source"     >
                 <td class="tNumber">${index + 1}</td>
                 <td class="tVenue">${venue.name}</td>
                 <td class="tCity">${venue.city}</td>
@@ -129,8 +146,11 @@ function renderBandEvents(bandEvents) {
                 </td>
             </tr>
         `;
+
     });
+
     return tableHead + rows;
+    
 }
 
 /**
@@ -174,14 +194,11 @@ function renderGoogleMapLink(venue) {
 
 function renderError(message) {
     return `<h4>${message}</h4>`;
+
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.collapsible');
-   // var instances = M.Collapsible.init(elems, options);
-});
-
 $(document).ready(init, function(){
-    $('.collapsible').collapsible()
-    //M.updateTextFields();
+    
+    $('select').formSelect();
+    $('select').show();
 });
