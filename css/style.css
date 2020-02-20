@@ -185,7 +185,9 @@ td > img{
 
     .searchBar > img{
         width: 35px;
-    }
+        /*margin-left: auto;
+        margin-right: auto;
+*/    }
 
     #contentTable,
     .table,
