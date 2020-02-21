@@ -74,6 +74,12 @@ div > select{
     margin: 0;
 }
 
+.searchBar{
+    border: 4px solid darkgray;
+    padding-top: 10px;
+    border-radius: 8px;
+}
+
 #adrtisBrowser{
     margin-top: 2.5rem;
 }

@@ -156,6 +156,7 @@ function renderBandEvents(bandEvents) {
     //$("#bandInfoRow").hide();
     $("#bandVenueList").show();
 */
+    $("#errorMsg").hide();
     return tableHead + rows;
 }
 

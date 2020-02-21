@@ -26,23 +26,24 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="searchBar col s10 offset-s1 xl10 offset-xl1">
-                <!--label-- id="artistLabel" for="artists">What band are you looking for?<--abel-->
-                <img src="https://img.icons8.com/wired/50/000000/search.png">
-                <input type="text" id="artists" class="source col s10" value="" name="band" placeholder="Search" autofocus>
+        <div class="row searchBar">
+            <div class=" col s10 offset-s1 lg4 xl9 ">
+                <input type="text" id="artists" class="source" value="" name="band" placeholder="Search" autofocus>
             </div>
-            <div class="filterDiv col s12 offset-s1">
+            <div class="filterDiv col s12 offset-s1 lg4 xl2">
                 <select name="filterBand" id="filterBand" class=" ">
                     <option value="all">All</option>
                     <option value="upcoming" selected>Upcoming</option>
                     <option value="past">Previous</option>
                 </select>
             </div>    
+            <div class="col lg4 xl1">
+                <img src="https://img.icons8.com/wired/50/000000/search.png">
+            </div>
         </div>
 
         <div class="row">
-           <div class="col">
+           <div class="col12">
                 <div id="artistsContent" class="justify-content-center align-items-center"></div>
                 <div id="errorMsg" class="error-msg" hidden></div>
            </div>
