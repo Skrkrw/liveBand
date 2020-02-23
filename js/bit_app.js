@@ -41,26 +41,25 @@ function fetchBandInformation(event) {
         console.log(eventsResponse);
         console.log(artistsResponse[0].upcoming_event_count);
         console.log(eventsResponse[0].length);
+
+        // Retrieve the artist value from the first item in the list of venues
+        var artistsInfo = artistsResponse[0];
+        var artistsEvents = eventsResponse[0];
+
         
+        artistsContent.innerHTML = renderArtistInfo(artistsInfo);
+        bandVenueList.innerHTML = renderBandEvents(artistsEvents);
+
+        $(artistsContent).show();
+
         if (!eventsResponse[0].length) {
             bandVenueListContainer.hide();
             $("#errorMsg").show();
             errorMessageContainer.innerHTML = renderError(`There's no upcomming shows`);
             return;
         } else {
-            bandVenueListContainer.show();
-            $("#artistsContent").show();
-            $(".card").show();
+            bandVenueListContainer.show();      
         }
-
-        // Retrieve the artist value from the first item in the list of venues
-        var artistsInfo = artistsResponse[0];
-        var artistsEvents = eventsResponse[0];
-
-        //bandVenueListContainer.show();
-        artistsContent.innerHTML = renderArtistInfo(artistsInfo);
-        //        bandVenueList.innerHTML = renderBandEvents(eventsResponse);
-        bandVenueList.innerHTML = renderBandEvents(artistsEvents);
     },
         (errorResponse) => {
             bandVenueListContainer.hide();
@@ -88,8 +87,6 @@ function init() {
 
     errorMessageContainer = document.getElementById('errorMsg');
     bandVenueListContainer = $('#bandVenueList');
-
-    //$("#artistsContent").show();
 
     // Add an event to the input#artists in order to handle entered values in the
     // input element. The handler uses a debounce funcition with a delay of 150ms
@@ -120,7 +117,6 @@ function renderBandEvents(bandEvents) {
         `;
 
     let rows = '';
-    //console.log(bandEvents);
 
     bandEvents.forEach((bandEvent, index) => {
         const venue = bandEvent.venue;
@@ -144,7 +140,7 @@ function renderBandEvents(bandEvents) {
         `;
 
     });
-    //$("#errorMsg").hide();
+
     return tableHead + rows;
 }
 
