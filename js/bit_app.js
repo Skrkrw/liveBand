@@ -26,47 +26,46 @@ function fetchBandInformation(event) {
     // Reset errors or info messages
     errorMessageContainer.innerHTML = '';
 
-    // Check if the event is null or if the target value is empty
-    if (!event || event.target.value === '') {
-        artistsContent.innerHTML = '';
-        /*$(tableHead).hide();*/
-        bandVenueListContainer.hide();
-        return;
-    }
-
     // If the target value is not empty then we get the value for target in this
     // case the input element.
     let artists = event.target.value;
-
+    console.log(artists);
     selectedOption = $("#filterBand").val();
     console.log(selectedOption);
-    
+
     $.when(
         $.getJSON(`${API_ENDPOINT}/${artists}?app_id=${API_KEY}`),
         $.getJSON(`${API_ENDPOINT}/${artists}/events?app_id=${API_KEY}&date=${selectedOption}`)
     ).then((artistsResponse, eventsResponse) => {
         console.log(artistsResponse);
         console.log(eventsResponse);
-
-        if (!eventsResponse.length) {
-            /*artistsContent.innerHTML = '';*/
+        console.log(artistsResponse[0].upcoming_event_count);
+        console.log(eventsResponse[0].length);
+        
+        if (!eventsResponse[0].length) {
             bandVenueListContainer.hide();
-            errorMessageContainer.innerHTML = renderError('Theres no upcomming shows');
+            $("#errorMsg").show();
+            errorMessageContainer.innerHTML = renderError(`There's no upcomming shows`);
             return;
+        } else {
+            bandVenueListContainer.show();
+            $("#artistsContent").show();
+            $(".card").show();
         }
 
         // Retrieve the artist value from the first item in the list of venues
         var artistsInfo = artistsResponse[0];
         var artistsEvents = eventsResponse[0];
 
-        bandVenueListContainer.show();
+        //bandVenueListContainer.show();
         artistsContent.innerHTML = renderArtistInfo(artistsInfo);
-//        bandVenueList.innerHTML = renderBandEvents(eventsResponse);
+        //        bandVenueList.innerHTML = renderBandEvents(eventsResponse);
         bandVenueList.innerHTML = renderBandEvents(artistsEvents);
     },
         (errorResponse) => {
             bandVenueListContainer.hide();
-            if (errorResponse.status === 404) {                
+            if (errorResponse.status === 404) {
+                $("#artistsContent").hide();
                 errorMessageContainer.innerHTML = renderError('No artist found with that name');
                 $("#errorMsg").show();
             } else if (errorResponse.status === 403) {
@@ -76,31 +75,26 @@ function fetchBandInformation(event) {
                 errorMessageContainer.innerHTML = renderError(errorResponse.responseJSON.message);
                 $("#errorMsg").show();
             }
-            
         });
 };
 
 
-/*****
- * 
- *****/
+/***********************************************************/
 function init() {
     // Retrieve the table body element in order to speed up the information
     // rendering process within the fetchBandInformation function.
     bandVenueList = document.getElementById('bandVenueList');
     artistsContent = document.getElementById('artistsContent');
 
-    dateEvent = document.getElementById('dateEvent');
-
     errorMessageContainer = document.getElementById('errorMsg');
-    bandVenueListContainer = $('#bandVenueListContainer');
+    bandVenueListContainer = $('#bandVenueList');
 
-    
+    //$("#artistsContent").show();
 
     // Add an event to the input#artists in order to handle entered values in the
     // input element. The handler uses a debounce funcition with a delay of 150ms
     // in order to avoid repeadly execution of the handler.
-     $('#artists').on('keyup', _.debounce(fetchBandInformation, 150)); //<-- only 
+    $('#artists').on('keyup', _.debounce(fetchBandInformation, 150)); //<-- only 
 }
 
 
@@ -110,10 +104,10 @@ function init() {
  * @param {Array} bandEvents 
  */
 function renderBandEvents(bandEvents) {
-    
+
     tableHead = `
-        <thead id="tableHeader" class="tableHeader" textCenter ">
-            <tr class="pacifico">
+        <thead id="tableHeader" class="tableHeader" textCenter " >
+            <tr id="headerRow" class="pacifico">
                 <th class="tableHeaders tNumber">#</th>
                 <th class="tableHeaders tVenue">Venue</th>
                 <th class="tableHeaders tCity">City</th>
@@ -150,13 +144,7 @@ function renderBandEvents(bandEvents) {
         `;
 
     });
-/*
-    $("#errorMsg").hide();
-    //$("#tableHeader").show();
-    //$("#bandInfoRow").hide();
-    $("#bandVenueList").show();
-*/
-    $("#errorMsg").hide();
+    //$("#errorMsg").hide();
     return tableHead + rows;
 }
 
@@ -165,13 +153,8 @@ function renderBandEvents(bandEvents) {
  * @param {Object} artist 
  */
 function renderArtistInfo(artistsInfo) {
-    return artistInfoTpl({artistsInfo});
+    return artistInfoTpl({ artistsInfo });
 }
-
-/*
-function getFilterOption(){
-
-}*/
 
 /**
  * Handler used on the onclick event for A element used in the location of the
@@ -206,11 +189,8 @@ function renderGoogleMapLink(venue) {
 
 function renderError(message) {
     return `<h4>${message}</h4>`;
-
 }
 
-$(document).ready(init, function(){
+$(document).ready(init, function () {
     
-    $('select').formSelect();
-    //$('select').show();
 });

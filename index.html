@@ -18,7 +18,7 @@
 <body>
     <div class="container">
         <div id="artistsContainer" class="divContainer row">
-            <div id="artistsBrowser" class="col s10 offset-s1 l6 offset-l3 xl8 offset-xl2 ">
+            <div id="artistsBrowser" class="col s10 offset-s1 l8 offset-l2 xl8 offset-xl2 ">
                 <h1 class="pacifico">
                     <img class="liveBandIcon" src="https://img.icons8.com/wired/64/000000/rock-music.png">
                     Live Band!
@@ -26,47 +26,38 @@
             </div>
         </div>
 
-        <div class="row searchBar">
-            <div class=" col s10 offset-s1 lg4 xl9 ">
-                <input type="text" id="artists" class="source" value="" name="band" placeholder="Search" autofocus>
+        <div class="row searchBarContainer">
+            <div class="col s12 searchBarColContainer">
+                <div class="searchInput col s8 l9 xl9 ">
+                    <input type="text" id="artists" class="source" value="" name="band" placeholder="Search" autofocus>
+                </div>
+                <div class="filterDiv col  l2 xl2">
+                    <select name="filterBand" id="filterBand" class="col ">
+                        <option value="all" >All</option>
+                        <option value="upcoming" selected>Upcoming</option>
+                        <option value="past">Previous</option>
+                    </select>
+                </div>
             </div>
-            <div class="filterDiv col s12 offset-s1 lg4 xl2">
-                <select name="filterBand" id="filterBand" class=" ">
-                    <option value="all">All</option>
-                    <option value="upcoming" selected>Upcoming</option>
-                    <option value="past">Previous</option>
-                </select>
-            </div>    
-            <div class="col lg4 xl1">
-                <img src="https://img.icons8.com/wired/50/000000/search.png">
-            </div>
+            
         </div>
 
-        <div class="row">
-           <div class="col12">
-                <div id="artistsContent" class="justify-content-center align-items-center"></div>
-                <div id="errorMsg" class="error-msg" hidden></div>
-           </div>
-        </div>
+        <div id="artistsContent" class="justify-content-center align-items-center"></div>
+        <div id="errorMsg" class="error-msg"></div>
 
-        <div id="contentTable" class="row">
-            <table class="table col">
-                <!--thead-- id="tableHeader" class="tCenter"></!--thead-->
-                <tbody id="bandVenueList"></tbody>
-            </table>
-        </div>
+
+        <table class="table col">
+            <tbody id="bandVenueList">
+            </tbody>
+        </table>
     </div>
 
     <footer>
-
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!--script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
 
