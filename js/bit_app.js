@@ -55,7 +55,7 @@ function fetchBandInformation(event) {
         if (!eventsResponse[0].length) {
             bandVenueListContainer.hide();
             $("#errorMsg").show();
-            errorMessageContainer.innerHTML = renderError(`There's no upcomming shows`);
+            errorMessageContainer.innerHTML = renderError(`There's no upcoming shows`);
             return;
         } else {
             bandVenueListContainer.show();      
