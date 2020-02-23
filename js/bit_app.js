@@ -140,7 +140,7 @@ function renderBandEvents(bandEvents) {
         `;
 
     });
-
+    $("#errorMsg").hide();
     return tableHead + rows;
 }
 
