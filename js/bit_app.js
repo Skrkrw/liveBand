@@ -3,7 +3,8 @@ let errorMessageContainer;
 let bandVenueListContainer;
 let artistsContent;
 let tableHead;
-let selectedOption;
+let selectedOption = "upcoming";
+let artist = "";
 
 const API_ENDPOINT = 'https://rest.bandsintown.com/artists';
 const API_KEY = '39605faedc3f5b56c8bd18919d8a9c2a';
@@ -20,22 +21,44 @@ const artistInfoTpl = Handlebars.compile(
     </div>
     `);
 
-/*** @param {DOM} event ***/
-function fetchBandInformation(event) {
+/**
+ * Event handler to manipulate on KeyUp event
+ * @param {jQuery.event} event 
+ */
+function fetchBandInformationOnKeyUp(event) {
+    artist = event.target.value;
+    fetchBandInformation(artist, selectedOption);
+}
+
+/**
+ * Event handler to manipulate Select on Change event
+ * @param {jQuery.event} event
+ */
+function fetchBandInformationOnChange(event) {
+    selectedOption = event.target.value;
+    fetchBandInformation(artist, selectedOption);
+}
+
+/**
+ * 
+ * @param {String} artist the name of the artist to be search
+ * @param {String} filter the data range set used to filter the result
+ */
+function fetchBandInformation(artist, filter) {
     //console.log(event);
     // Reset errors or info messages
     errorMessageContainer.innerHTML = '';
 
     // If the target value is not empty then we get the value for target in this
     // case the input element.
-    let artists = event.target.value;
-    console.log(artists);
-    selectedOption = $("#filterBand").val();
-    console.log(selectedOption);
+
+/* console.log(artists);
+ selectedOption = $("#filterBand").val();
+ console.log(selectedOption);*/
 
     $.when(
-        $.getJSON(`${API_ENDPOINT}/${artists}?app_id=${API_KEY}`),
-        $.getJSON(`${API_ENDPOINT}/${artists}/events?app_id=${API_KEY}&date=${selectedOption}`)
+        $.getJSON(`${API_ENDPOINT}/${artist}?app_id=${API_KEY}`),
+        $.getJSON(`${API_ENDPOINT}/${artist}/events?app_id=${API_KEY}&date=${filter}`)
     ).then((artistsResponse, eventsResponse) => {
         console.log(artistsResponse);
         console.log(eventsResponse);
@@ -91,7 +114,8 @@ function init() {
     // Add an event to the input#artists in order to handle entered values in the
     // input element. The handler uses a debounce funcition with a delay of 150ms
     // in order to avoid repeadly execution of the handler.
-    $('#artists').on('keyup', _.debounce(fetchBandInformation, 150)); //<-- only 
+    $('#artists').on('keyup', _.debounce(fetchBandInformationOnKeyUp, 150)); //<-- only 
+    $('#filterBand').change(fetchBandInformationOnChange);
 }
 
 

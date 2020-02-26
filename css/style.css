@@ -68,6 +68,24 @@ div > select{
     margin-top: 1rem;
 }*/
 
+select{
+    position: absolute;
+}
+
+.searchIcon{
+    background-image: url(https://img.icons8.com/wired/50/000000/search.png);
+    background-repeat: no-repeat;
+
+    background-color: transparent;
+
+    border: 0;
+
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+}
+
 .card{
     margin: 2rem auto;
 }
