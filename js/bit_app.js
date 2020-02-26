@@ -45,34 +45,18 @@ function fetchBandInformationOnChange(event) {
  * @param {String} filter the data range set used to filter the result
  */
 function fetchBandInformation(artist, filter) {
-    //console.log(event);
     // Reset errors or info messages
     errorMessageContainer.innerHTML = '';
-
-    // If the target value is not empty then we get the value for target in this
-    // case the input element.
-
-/* console.log(artists);
- selectedOption = $("#filterBand").val();
- console.log(selectedOption);*/
-
     $.when(
         $.getJSON(`${API_ENDPOINT}/${artist}?app_id=${API_KEY}`),
         $.getJSON(`${API_ENDPOINT}/${artist}/events?app_id=${API_KEY}&date=${filter}`)
     ).then((artistsResponse, eventsResponse) => {
-        console.log(artistsResponse);
-        console.log(eventsResponse);
-        console.log(artistsResponse[0].upcoming_event_count);
-        console.log(eventsResponse[0].length);
-
         // Retrieve the artist value from the first item in the list of venues
         var artistsInfo = artistsResponse[0];
         var artistsEvents = eventsResponse[0];
 
-        
         artistsContent.innerHTML = renderArtistInfo(artistsInfo);
         bandVenueList.innerHTML = renderBandEvents(artistsEvents);
-
         $(artistsContent).show();
 
         if (!eventsResponse[0].length) {
@@ -107,17 +91,18 @@ function init() {
     // rendering process within the fetchBandInformation function.
     bandVenueList = document.getElementById('bandVenueList');
     artistsContent = document.getElementById('artistsContent');
-
     errorMessageContainer = document.getElementById('errorMsg');
     bandVenueListContainer = $('#bandVenueList');
 
     // Add an event to the input#artists in order to handle entered values in the
     // input element. The handler uses a debounce funcition with a delay of 150ms
     // in order to avoid repeadly execution of the handler.
-    $('#artists').on('keyup', _.debounce(fetchBandInformationOnKeyUp, 150)); //<-- only 
+    $('#artists').on('keyup', _.debounce(fetchBandInformationOnKeyUp, 150));
+    
+    //Add and event to the select#filterBand to handle the changes form the set range of values
+    //All, upcming or past
     $('#filterBand').change(fetchBandInformationOnChange);
 }
-
 
 /**
  * Returns the string representation of the HTML markup related to the band
@@ -125,7 +110,7 @@ function init() {
  * @param {Array} bandEvents 
  */
 function renderBandEvents(bandEvents) {
-
+    let rows = '';
     tableHead = `
         <thead id="tableHeader" class="tableHeader" textCenter " >
             <tr id="headerRow" class="pacifico">
@@ -139,8 +124,6 @@ function renderBandEvents(bandEvents) {
             </tr>        
         </thead>
         `;
-
-    let rows = '';
 
     bandEvents.forEach((bandEvent, index) => {
         const venue = bandEvent.venue;
@@ -162,8 +145,8 @@ function renderBandEvents(bandEvents) {
                 </td>
             </tr>
         `;
-
     });
+    
     $("#errorMsg").hide();
     return tableHead + rows;
 }
@@ -211,6 +194,4 @@ function renderError(message) {
     return `<h4>${message}</h4>`;
 }
 
-$(document).ready(init, function () {
-    
-});
+$(document).ready(init, function () { });
