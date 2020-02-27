@@ -29,12 +29,14 @@ In the tablet/desktop version, is easy to see all the rows of the table.
 
 | # | Venue | City | Country | Location | Tickets |
 |---|-------|------|---------|----------|---------|
+
 ![Desktop version](wireframe/desktop.jpg)
 
 In the mobile version, the table change to make it easy to read on small devices such as smartphones, keeping location due to it is a small icon and when clicked pop-up the map where the venue is located, and last the ticket link which openes a new tab on the browser to get the tickets of the event.
 
 | Venue | Country | Location | Tickets |
 |-------|---------|----------|---------|
+
 ![Mobile Version](wireframe/mobile.jpg)
 
 
