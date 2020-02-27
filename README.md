@@ -5,8 +5,11 @@ This website is connected to two API's, the first one is the [Bandsintown REST A
 
 
 ### Purpose
-The purpose of this project is to show the skills gain through out the course at this point and during the development of this project. 
-Thi is a non-profit project, reason why each ticket link targets to a new tab/window to [bandsintown](https://www.bandsintown.com/) artist link.
+The purpose of this project is to show the skills gain through out the course at this point and during the development of this project.
+In this project you will be able to find available shows/events from your favorite band or artists. As a single page application, it will load all the information without the need to reload all the webpage again, updating the information in real time.
+The information shown will be number, represented with a #, venue name, city, country, location, and tickets link, represented with a globe and a ticket icon respetively.
+Connecting the application with a google maps API, the end user will be able to see in a pop-up map where the venue is located.
+This is a non-profit project, reason why each ticket link targets to a new tab/window to [bandsintown](https://www.bandsintown.com/) artist link.
 
 ### Technologies
 * HTML
