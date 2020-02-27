@@ -41,7 +41,7 @@ In the mobile version, the table change to make it easy to read on small devices
 
 
 ### Deployment
-The project was developed using Visual Studio Code and for version control used Github Desktop, a github desktop aplication which makes committing and pushing the changes easier to github where the peoject is hosted.
+The project was developed using Visual Studio Code and for version control used git and Github Desktop, a github desktop aplication which makes committing and pushing the changes easier to github where the peoject is hosted.
 This application is live and hosted in GitHub pages, deployed from the master branch. The landing page is the index.html file in order to make it live. Everytime a change is being done and commit to the project it will be reflected.
 
 ### Testing
