@@ -2,27 +2,17 @@
 .selector-for-some-widget {
   box-sizing: content-box;
 }
-/***************
-    font-family: 'Pacifico', cursive;
-    font-family: 'Source Code Pro', monospace;
-**************/
+
 .pacifico{
     font-family: 'Pacifico', cursive;
 }
-
 .source{
     font-family: 'Source Code Pro', monospace;
 }
 
-/*********************************************
-**********************************************/
-
-
-/**********************************************/
 body{
     margin: 0;
     padding: 0;
-    
     background: rgb(36,241,246);
     background: linear-gradient(65deg, rgba(36,241,246,1) 50%, 
                                         rgba(29,253,145,1) 47%,
@@ -31,10 +21,6 @@ body{
     color: black;
     font-weight: 500;
 }
-/*
-*{
-    background-color: rgb(87, 165, 179);
-}/*/
 
 a{
     text-decoration: none;
@@ -44,10 +30,6 @@ h1{
     font-size: 4rem;
     text-align: center;
 }
-
-/*.liveBandIcon{
-    margin-bottom: 15px;
-}*/
 
 table{
     margin: 0 auto;
@@ -62,11 +44,6 @@ div > select{
     position: absolute;
     width: 150px;
 }
-
-/*#artistsContent,
-#artistsAlbum{
-    margin-top: 1rem;
-}*/
 
 select{
     position: absolute;
@@ -119,8 +96,7 @@ input[type="text"]{
     /*text-align: center;*/
     border:0px !important;
     font-size: 24px !important;
-    outline: none;
-   
+    outline: none;  
 }
 
 .searchInput{
@@ -130,16 +106,12 @@ input[type="text"]{
 .container > .searchBar{
     border: 25% solid black;
 }
-/*#contentTable{
-    /*overflow-x:auto;
-}*/
-
 
 input::placeholder{
     color: black;
     font-weight: 700;
     padding-left: 20px;
-    height: 3rem !important;
+   height: 3rem !important;
     
 }
 
@@ -161,24 +133,6 @@ td > img{
 .error-msg{
     text-align: center;
 }
-
-
-/****************
-// Extra small devices (portrait phones, less than 576px)
-@media (max-width: 575.98px) { ... }
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) and (max-width: 767.98px) { ... }
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) and (max-width: 991.98px) { ... }
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) and (max-width: 1199.98px) { ... }
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
-******************************/
 
 @media (max-width: 450px){
     .tNumber{
@@ -227,12 +181,6 @@ td > img{
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px){
-
-    /*div > .liveBandIcon{
-        width: 35px !important;
-        margin-top: 10px;
-    }*/
-
     tr > td{
         font-size: 12px;
         padding: 4px;
@@ -241,10 +189,6 @@ td > img{
     tr > th{
         padding: 4px;
     }
-
-    /*#filterBand{
-        width: 80vw;
-    }*/
 
     #contentTable,
     .table,
@@ -256,30 +200,9 @@ td > img{
     .searchBarContainer{
         margin-left: 5px;
         margin-right: 5px;
-
     }
 
     .filterDiv{
         width: 90px !important;
     }
-
- /*   .searchBar > col
-    .search > .searchInput{
-        margin: 0 !important;
-    }
-*/
 }
-
-@media (min-width: 992px) and (max-width: 1199.98px) { 
-
-}
-
-/**
-    <th class="tableHeaders tNumber">#</th>
-    <th class="tableHeaders tVenue">Venue</th>
-    <th class="tableHeaders tCity">City</th>
-    <th class="tableHeaders tCountry">Country</th>
-    <th class="tableHeaders tLocation">Location</th>
-    <th class="tableHeaders tDateTime">Date & Time</th>
-    <th class="tableHeaders tTicket">Tickets</th>
-**/

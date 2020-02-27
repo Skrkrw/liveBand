@@ -6,8 +6,12 @@ let tableHead;
 let selectedOption = "upcoming";
 let artist = "";
 
+//Bandsintown API endpoint
 const API_ENDPOINT = 'https://rest.bandsintown.com/artists';
+
+//Bandsintown API key
 const API_KEY = '39605faedc3f5b56c8bd18919d8a9c2a';
+
 // Creates your own Google Maps Plataform API Key and replace this one.
 const GMP_API_KEY = 'AIzaSyD50Cf8z1w1f_pxvRR1vr-_EPc3yP0Qpnc';
 
@@ -40,7 +44,6 @@ function fetchBandInformationOnChange(event) {
 }
 
 /**
- * 
  * @param {String} artist the name of the artist to be search
  * @param {String} filter the data range set used to filter the result
  */
@@ -83,7 +86,6 @@ function fetchBandInformation(artist, filter) {
             }
         });
 };
-
 
 /***********************************************************/
 function init() {
@@ -139,7 +141,7 @@ function renderBandEvents(bandEvents) {
                 <td class="tLocation">${renderGoogleMapLink(venue)}</td>
                 <td class="tDateTime">${eventDate}</td>
                 <td class="contentimg tTicket">
-                    <a href="${eventUrl}">
+                    <a href="${eventUrl}" target="_blank">
                         <img src="https://img.icons8.com/wired/64/000000/starred-ticket.png" width="32px">
                     </a>
                 </td>
