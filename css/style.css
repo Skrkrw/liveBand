@@ -102,7 +102,7 @@ input[type="text"]{
 }
 
 .container > .searchBar{
-    border: 25% solid black;
+    border: 25px solid black;
 }
 
 input::placeholder{

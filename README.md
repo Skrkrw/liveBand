@@ -28,6 +28,10 @@ This is a non-profit project, reason why each ticket link targets to a new tab/w
 * Bands in town API
 
 ### UX with Responsive design
+In this case, [Materialize](https://materializecss.com/) was used insted of [Bootstrap](https://getbootstrap.com), no reason in particular, simply testing something new.
+
+For the icons [icons8](https://icons8.com/) was the option for their desings and for the fonts, from [Google Fonts](https://fonts.google.com), [pacifico](https://fonts.google.com/?query=pacifico) and [Source Code Pro](https://fonts.google.com/specimen/Source+Sans+Pro).
+
 In the tablet/desktop version, is easy to see all the rows of the table.
 
 | # | Venue | City | Country | Location | Tickets |
@@ -48,7 +52,9 @@ The project was developed using Visual Studio Code and for version control used 
 This application is live and hosted in GitHub pages, deployed from the master branch. The landing page is the index.html file in order to make it live. Everytime a change is being done and commit to the project it will be reflected.
 
 ### Testing
-The application was tested on Chrome desktop version, changing the view port size using the developers tools of the web browser, also chrome web version on a Samsung Galaxy Note 10 and a Samsung Galaxy Note 8. 
+In the working project place, the application was tested on Chrome desktop version, changing the view port size using the developers tools of the web browser, also chrome web version on a Samsung Galaxy Note 10 and a Samsung Galaxy Note 8. 
+
+Sharing the project's link and asking friends to test and share their thougths, has been good to understand how they would interact with the application and how it will behaive on their devices, making the changes on time to test again. Considering that the straight devices they will testing it is a smartphone, the project target was to work perfect on a mobile phone/smartphone. 
 
 ### Features
 #### Fueatures left to implement
