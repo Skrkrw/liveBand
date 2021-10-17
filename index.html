@@ -5,49 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://www.jacklmoore.com/colorbox/example1/colorbox.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="shortcut icon" type="image/x-icon" href="https://img.icons8.com/wired/64/000000/rock-music.png" />
     <title>Live Band</title>
 </head>
 <body>
-    <div class="container">
-        <div id="artistsContainer" class="divContainer row">
-            <div id="artistsBrowser" class="col s10 offset-s1 l8 offset-l2 xl8 offset-xl2">
-                <h1 class="pacifico">
-                    <img class="liveBandIcon" src="https://img.icons8.com/wired/64/000000/rock-music.png">
-                    Live Band!
-                </h1>
-            </div>
+    <header>
+        <div class="brand-header">
+            <img class="liveBandIcon" src="https://img.icons8.com/wired/64/000000/rock-music.png">
+            <h1>
+                Live Band!
+            </h1>
         </div>
-        <div class="row searchBarContainer">
-            <div class="col s12 searchBarColContainer">
-                <div class="searchInput col s8 m8 offset-m1 l9 xl8 offset-xl1">
-                    <input type="text" id="artists" class="source" value="" name="band" placeholder="Search" autofocus>
-                </div>
-                <div class="filterDiv col l2 xl2">
-                    <select name="filterBand" id="filterBand">
-                        <option value="all" >All</option>
-                        <option value="upcoming" selected>Upcoming</option>
-                        <option value="past">Previous</option>
-                    </select>
-                </div>
-            </div> 
+        <div class="searchBarContainer">
+            <input type="text" id="artists" class="" value="" name="band" placeholder="Search for a band here" autofocus>
+
+            <!--select name="filterBand" id="filterBand" class="form-select">
+                <option value="all" >All</option>
+                <option value="upcoming" selected>Upcoming</option>
+                <option value="past">Previous</option>
+            </!--select-->
         </div>
-        <div id="artistsContent" class="justify-content-center align-items-center"></div>
+    </header>
+    <main class="container">
+        <div id="artistsContent" class="justify-content-around align-items-center"></div>
+       
         <div id="errorMsg" class="error-msg"></div>
-        <table class="table col">
-            <tbody id="bandVenueList"></tbody>
+
+        <table class="table">
+            <thead id="tableHeader" class="tableHeader hide"></thead>
+                <!--tr id="headerRow" class="pacifico">
+                    <th class="tableHeaders tNumber ">#</th>
+                    <th class="tableHeaders tCity">City - Country</th>
+                    <th class="tableHeaders tVenue">Venue</th>
+                    <th class="tableHeaders tDateTime">Date & Time</th>
+                    <th class="tableHeaders tTicket">Tickets</th>
+                </tr-->
+            </thead>
+            <tbody id="bandVenueList">
+            </tbody>
         </table>
-    </div>
+    </main>
     <footer>
     </footer>
+    
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
     <script src="https://www.jacklmoore.com/colorbox/jquery.colorbox.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script type="text/javascript" src="js/bit_app.js"></script>
+    <!--script type="text/javascript" src="js/bit_app.js"></script-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="./js/app.js"></script>
+    
 </body>
 </html>

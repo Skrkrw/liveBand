@@ -2,15 +2,14 @@ let bandVenueList;
 let errorMessageContainer;
 let bandVenueListContainer;
 let artistsContent;
-let tableHead;
 let selectedOption = "upcoming";
 let artist = "";
 
 //Bandsintown API endpoint
-const API_ENDPOINT = 'https://rest.bandsintown.com/artists';
+const API_ENDPOINT = 'https://api.songkick.com/api/3.0';
 
 //Bandsintown API key
-const API_KEY = '39605faedc3f5b56c8bd18919d8a9c2a';
+const API_KEY = 'dogx6hGvck79iv5H';
 
 // Creates your own Google Maps Plataform API Key and replace this one.
 const GMP_API_KEY = 'AIzaSyD50Cf8z1w1f_pxvRR1vr-_EPc3yP0Qpnc';
@@ -51,11 +50,12 @@ function fetchBandInformation(artist, filter) {
     // Reset errors or info messages
     errorMessageContainer.innerHTML = '';
     $.when(
-        $.getJSON(`${API_ENDPOINT}/${artist}?app_id=${API_KEY}`),
+        $.getJSON(`${API_ENDPOINT}/search/artists.json?apikey=${API_KEY}&query=${artist}`),
         $.getJSON(`${API_ENDPOINT}/${artist}/events?app_id=${API_KEY}&date=${filter}`)
     ).then((artistsResponse, eventsResponse) => {
         // Retrieve the artist value from the first item in the list of venues
         var artistsInfo = artistsResponse[0];
+        console.log("AI: " + artistsResponse[0] )
         var artistsEvents = eventsResponse[0];
 
         artistsContent.innerHTML = renderArtistInfo(artistsInfo);
@@ -113,7 +113,7 @@ function init() {
  */
 function renderBandEvents(bandEvents) {
     let rows = '';
-    tableHead = `
+    let tableHead = `
         <thead id="tableHeader" class="tableHeader" textCenter " >
             <tr id="headerRow" class="pacifico">
                 <th class="tableHeaders tNumber">#</th>
